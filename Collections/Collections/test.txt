@@ -1,0 +1,220 @@
+	//	Data<int> a (1),b (2),c (3);
+
+	int a(1), b(2), c(3), d(4), e(5);
+
+	//	List<Data<int> > mylist;
+
+	List <int> mylist;
+
+	mylist.add(1);
+	mylist.add(b);
+	mylist.add(c);
+	mylist.add(d);
+
+
+	mylist.disp();
+	cout << mylist.len() << endl;
+	cout << mylist.isMember(e) << endl;
+	cout << "**************************" << endl;
+
+	mylist.remove(3);
+	mylist.disp();
+	cout << "**************************" << endl;
+	mylist.replace(2, 10);
+	mylist.disp();
+
+	cout << "**************************" << endl;
+	//Data<int> *ptr=mylist.ptr();
+
+	itr<int> ptr = mylist.ptr();
+
+	int i = 0;
+
+	while (ptr != NULL) {
+
+		cout << "data [" << i << "]= " << (ptr->val) << endl;
+
+		i++;
+		ptr = ptr->next;
+
+	}
+
+	cout << "**************************" << endl;
+
+	int Array[3] = { -1, -1, -1 };
+	mylist.add(Array, 3);
+	mylist.disp();
+
+	cout << "**************************" << endl;
+
+	int* p = mylist.toArray();
+	for (int i = 0; i <mylist.len(); i++){
+		cout << "data [" << i << "]= " << p[i] << endl;
+
+	}
+	delete[] p;
+
+	cout << "**************************" << endl;
+
+//	List <int> list(Array,3);
+    List <int> list (mylist);
+	list.add (list);
+	list.disp();
+	
+	cout << "**************************" << endl;
+	
+		a=1000;
+		mylist.removeall (10);
+		mylist.clear ();
+		mylist.add (list);
+		mylist.add (a);
+		mylist.disp ();	
+
+
+	List<int> list1;
+	list1.add(1);
+	list1.add(2);
+	list1.add(3);
+
+	List<int> list2;
+	list2.add(2);
+	list2.add(2);
+	list2.add(2);
+	list2.add(2);
+
+	list2.removeall(2);
+
+	//if (list1 == list2) cout << true << endl;
+	//if (list1 != list2) cout << false << endl;
+
+
+	//cout << (list1 == list2) << endl;
+
+		Hash<char, int, 11, HashCode<int>> myhash(5, 'A');
+
+	myhash.insert(16, 'B');
+	myhash.insert(16, 'C');
+
+	cout << myhash.find(16)<<endl;
+	cout << myhash[5] << endl;
+
+	myhash.remove(16);
+	
+	
+	cout << myhash[5] << endl;
+	cout << myhash.find(16) << endl;
+
+	cout << "*********************************" << endl;
+	int* keys = myhash.keys();
+
+	for (int i = 0; i < myhash.number_elements(); i++){
+		cout << "key[" << i << "]= " << keys[i] << endl;
+	}
+	cout << "*********************************" << endl;
+
+
+
+		Hash<char*, long int, 11, StringHash<string>> myhash;
+	
+	/*myhash.insert("Arash", "6478978975");
+	myhash.insert("Jinus", "4168979846");
+	myhash.insert("Babak", "6473092225)");*/
+	
+
+	myhash["Arash"] = 100;
+	myhash.insert("Arash", 1);
+	myhash.insert("Jinus", 2);
+	myhash.insert("Babak", 3);
+
+	//char*c = myhash["Jinus"];
+	long int c = myhash["Jinus"];
+	myhash["Jinus"] = 22;
+	cout << c<<endl;
+
+	try{
+		cout << myhash["Adonis"] << endl;
+	}
+	catch (KeyError e) {
+		cout<<e.what()<<endl;
+	}
+
+
+		Vector<int> myvector;
+	cout << "size= "<< myvector.getSize()<< endl;
+	cout << "capacity= " << myvector.getCapacity() << endl;
+	cout << "sizefactor= " << myvector.getSizefactor() << endl;
+	cout << "********************************************************" << endl;
+	myvector.resize(100);
+	cout << "size= " << myvector.getSize() << endl;
+	cout << "capacity= " << myvector.getCapacity() << endl;
+	cout << "sizefactor= " << myvector.getSizefactor() << endl;
+	myvector[50] = 1000;
+	try{
+		cout << myvector[0] << endl;
+		cout << myvector[50] << endl;
+		cout << myvector[99] << endl;
+		cout << myvector[500] << endl;
+	}
+	catch (VectorBoundError e) {
+		cout << e.what() << endl;
+	}
+
+	myvector.clear();
+
+	cout << "********************************************************" << endl;
+	myvector.resize(10);
+	cout << "size= " << myvector.getSize() << endl;
+	cout << "capacity= " << myvector.getCapacity() << endl;
+	cout << "sizefactor= " << myvector.getSizefactor() << endl;
+	for (unsigned int i = 0; i < 10; i++){
+		myvector.insert(i, i);
+		cout << myvector[i] << endl;
+	}
+	
+	myvector.fill(1, 6, -1);
+	cout << "********************************************************" << endl;
+	for (unsigned int i = 0; i < 10; i++){
+		
+		cout << myvector[i] << endl;
+	}
+
+
+
+	cout << endl << endl << "Press Enter to exit..." << endl;
+	//getchar();
+
+
+		Comp_Person myCOMP;
+
+	cout<< myCOMP(Person(100, 10, 0), Person(150, 20, 1))<<endl;
+
+	BTree<Person, Comp_Person> btree;
+	
+	btree.insert(Person (94, 181, 60));
+	btree.insert(Person(97,140,75));
+	btree.insert(Person(10,120,30));
+	btree.insert(Person(24,167,70));
+	btree.insert(Person(5,115,30));
+	btree.insert(Person(15,175,60));
+	btree.insert(Person(27,178,80));
+	btree.insert(Person(17,172,66));
+	btree.insert(Person(12,155,45));
+	btree.insert(Person(6,115,28));
+	btree.insert(Person(50,190,88));
+	btree.insert(Person(25,185,82));
+
+	cout << btree.findMin()<< endl;
+	Person a = btree.findMin();
+	cout << btree.findMax() << endl;
+	cout << btree.getSize() << endl;
+
+
+	btree.remove(Person(24, 167, 70));
+	
+
+	//cout << "Btree destructor is called ..." << endl;
+	//cout << "------------------------------------------------------" << endl;
+
+	btree.removeAll(btree.root);
+	btree.insert(Person(0,35,3));
+	cout << btree.getSize() << endl;
